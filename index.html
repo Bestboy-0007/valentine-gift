@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤️ For My Love ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+    <!-- Login Container -->
+    <div class="login-container">
+        <div class="login-box">
+            <div class="heart-icon">💕</div>
+            <h1 class="title">Enter Passcode</h1>
+            <p class="subtitle">For my special someone</p>
+            
+            <div class="passcode-wrapper">
+                <input 
+                    type="password" 
+                    id="passcode" 
+                    maxlength="4" 
+                    placeholder="****"
+                    autocomplete="off"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                >
+                <div class="input-line"></div>
+            </div>
+            
+            <button class="submit-btn" onclick="checkPasscode()">
+                <span>Unlock Love</span>
+                <span class="btn-heart">❤️</span>
+            </button>
+            
+            <p class="error-message" id="errorMessage"></p>
+        </div>
+        
+        <div class="decorative-hearts">
+            <span class="deco-heart">💗</span>
+            <span class="deco-heart">💖</span>
+            <span class="deco-heart">💘</span>
+            <span class="deco-heart">💝</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize hearts animation on login page
+        document.addEventListener('DOMContentLoaded', () => {
+            createFloatingHearts();
+        });
+    </script>
+</body>
+</html>
