@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤️ My Love ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Hearts Background -->
+    <div class="hearts-background" id="heartsBackground"></div>
+    
+    <!-- Main Container -->
+    <div class="surprise-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-heart">💕</div>
+            <h1 class="main-title">Happy Valentine's Day</h1>
+            <p class="sub-title">My Everything 💖</p>
+        </header>
+        
+        <!-- Love Message Section -->
+        <section class="love-message-section">
+            <div class="message-container">
+                <h2 class="section-title">💌 A Message For You 💌</h2>
+                <p class="love-message" id="loveMessage"></p>
+                <span class="cursor">|</span>
+            </div>
+        </section>
+        
+        <!-- Why I Love You Section -->
+        <section class="why-love-section">
+            <h2 class="section-title">💝 Why I Love You 💝</h2>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-number">1</div>
+                    <p class="reason-text">Your beautiful smile that lights up my world</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-number">2</div>
+                    <p class="reason-text">The way you understand me without words</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-number">3</div>
+                    <p class="reason-text">Your kind heart and gentle soul</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-number">4</div>
+                    <p class="reason-text">The joy you bring to every moment</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-number">5</div>
+                    <p class="reason-text">Your laughter is my favorite melody</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-number">6</div>
+                    <p class="reason-text">You make me a better person every day</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Photo Gallery Section -->
+        <section class="gallery-section">
+            <h2 class="section-title">📸 Our Memories 📸</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="photo-placeholder">❤️</div>
+                    <p class="photo-caption">Sweet Moments</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="photo-placeholder">💑</div>
+                    <p class="photo-caption">Us Together</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="photo-placeholder">🌹</div>
+                    <p class="photo-caption">Love Blooms</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="photo-placeholder">✨</div>
+                    <p class="photo-caption">Memories</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="photo-placeholder">💖</div>
+                    <p class="photo-caption">Forever</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="photo-placeholder">🎀</div>
+                    <p class="photo-caption">Cherished</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Timeline Section -->
+        <section class="timeline-section">
+            <h2 class="section-title">⏰ Our Timeline ⏰</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">💫</div>
+                    <div class="timeline-content">
+                        <h3>First We Met</h3>
+                        <p>The day my life changed forever</p>
+                        <span class="timeline-date">Beginning</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">🌙</div>
+                    <div class="timeline-content">
+                        <h3>First Date</h3>
+                        <p>The start of our beautiful journey</p>
+                        <span class="timeline-date">Special Moment</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">💕</div>
+                    <div class="timeline-content">
+                        <h3>Today</h3>
+                        <p>Every day with you is Valentine's Day</p>
+                        <span class="timeline-date">Forever & Always</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Surprise Button -->
+        <section class="surprise-section">
+            <button class="surprise-btn" onclick="showSurprise()">
+                <span class="btn-text">Click for Surprise ❤️</span>
+                <span class="btn-sparkles">✨ 💖 ✨</span>
+            </button>
+        </section>
+    </div>
+    
+    <!-- Surprise Popup -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-content">
+            <div class="popup-hearts">
+                <span>💕</span>
+                <span>💖</span>
+                <span>💗</span>
+                <span>💘</span>
+                <span>💝</span>
+            </div>
+            <h2 class="popup-title" id="popupTitle">I LOVE YOU ❤️</h2>
+            <p class="popup-message" id="popupMessage">Will you be my Valentine? 💕</p>
+            <div class="popup-heart-animation">❤️</div>
+            <div class="yes-no-buttons" id="yesNoButtons">
+                <button class="yes-btn" onclick="answerValentine('yes')">Yes 💖</button>
+                <button class="no-btn" onclick="answerValentine('no')">No 😢</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Confetti Canvas -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize surprise page
+        document.addEventListener('DOMContentLoaded', () => {
+            createFallingHearts();
+            typeLoveMessage();
+        });
+    </script>
+</body>
+</html>
