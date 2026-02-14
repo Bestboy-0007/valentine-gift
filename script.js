@@ -17,7 +17,13 @@ const errorMessages = [
 ];
 
 // Love message to type out
-const loveMessage = "My dearest love, from the moment I first saw you, my life has been filled with joy and meaning. You are my sunshine on cloudy days, my smile when I'm sad, and my heartbeat when I think of you. Every moment with you is a treasure, and I fall more in love with you each day. Happy Valentine's Day! ❤️";
+const loveMessage = "Aap meri zindagi ka woh hissa hain jiske bina ab sab kuch adhura sa lagta hai.
+Aapke aane ke baad meri life mein sirf pyaar nahi… sukoon bhi aaya hai.
+Main bas itna kehna chahta hoon ki
+aap mere liye special nahi… aap meri duniya hain.
+Aap hamesha mere saath rahiye…
+main har haal mein aapka saath nibhaunga.
+I love you so much ❤️";
 
 // ========================================
 // LOGIN PAGE FUNCTIONS
