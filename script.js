@@ -240,8 +240,10 @@ function answerValentine(answer) {
 // CONFETTI EFFECT
 // ========================================
 
-let confettiInterval;
+let confettiInterval = null;
+let confettiAnimationId = null;
 const confettiColors = ['#ff4d6d', '#ff8fa3', '#ffd700', '#ff69b4', '#ff1493', '#da70d6'];
+let confettiPieces = [];
 
 function startConfetti() {
     const canvas = document.getElementById('confettiCanvas');
@@ -250,12 +252,12 @@ function startConfetti() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     
-    const confetti = [];
+    confettiPieces = [];
     const confettiCount = 150;
     
     // Create confetti pieces
     for (let i = 0; i < confettiCount; i++) {
-        confetti.push({
+        confettiPieces.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height - canvas.height,
             w: Math.random() * 10 + 5,
@@ -271,7 +273,7 @@ function startConfetti() {
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        confetti.forEach(c => {
+        confettiPieces.forEach(c => {
             ctx.save();
             ctx.translate(c.x, c.y);
             ctx.rotate(c.angle);
@@ -292,7 +294,7 @@ function startConfetti() {
         });
         
         if (confettiInterval) {
-            requestAnimationFrame(draw);
+            confettiAnimationId = requestAnimationFrame(draw);
         }
     }
     
@@ -305,9 +307,15 @@ function startConfetti() {
 
 function stopConfetti() {
     confettiInterval = false;
+    if (confettiAnimationId) {
+        cancelAnimationFrame(confettiAnimationId);
+        confettiAnimationId = null;
+    }
     const canvas = document.getElementById('confettiCanvas');
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
 }
 
 // Celebration function
